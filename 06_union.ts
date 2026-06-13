@@ -2,6 +2,7 @@
 {
     let phone: number | string = '123-456-7890'
 
+    // !!val 就是说把任意值转换为 boolean
     let fn = function (val: number | boolean): boolean {
         return !!val
     }

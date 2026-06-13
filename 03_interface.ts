@@ -41,9 +41,11 @@ let c: C = {
 //////////////////////////////////////
 
 interface Fn {
+    // 意思是：凡是符合 Fn 类型的值，必须是一个接受 string、返回 number[] 的函数。
     (name: string): number[]
 }
 
+// 函数本身就是一个对象。fn 现在既然继承 Fn, 就是直接输出一个函数
 const fn: Fn = (name) => {
     console.log(name);
     return [1, 2, 3];

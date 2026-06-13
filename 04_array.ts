@@ -57,6 +57,15 @@ interface ABC {
     [index: number]: any
 }
 
+// 注意：下面的 [0], [1] 不是索引签名，因为索引签名已经在 ABC 这个 interface 里面了。下面的 [0]
+const abc: ABC = {
+    callee: function() {},
+    length: 3,
+    [0]: "hello", // ← 这是 computed property，key 是数字 0
+    [1]: 42,      // ← key 是数字 1
+    [2]: true,    // ← key 是数字 2
+}
+
 // 这是利用剩余参数语法来定义一个函数，参数类型为 any[]
 function aFun1(...args: any[]): void {
     // console.log(args)

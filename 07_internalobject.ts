@@ -22,3 +22,18 @@
         // console.log(res.length);
     });
 }
+
+{
+    setTimeout(() => {
+        console.log('ABC');
+
+        setTimeout(() => {
+            console.log('DEF');
+
+            setTimeout(() => {
+                console.log('GHI');
+            }, 1000);
+
+        }, 1000)
+    }, 1000)
+}
