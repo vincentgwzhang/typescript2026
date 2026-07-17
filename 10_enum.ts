@@ -10,6 +10,31 @@
     }
 
     // console.log(Color.RED); // Output: 0
+
+    enum abc {
+        npc1,
+        npc2,
+        npc3,
+    }
+
+    /**
+     * enum 编译下会变成这样
+     * 
+        {
+            0: "RED",
+            1: "GREEN",
+            2: "BLUE",
+            RED: 0,
+            GREEN: 1,
+            BLUE: 2
+        }
+
+        abc.RED 的值是 0 (abc["RED"] 也就是 0. 两种写法一样)
+        abc[0] 的值是 "RED"
+     * 
+     */
+
+    console.log(abc.npc2) // 默认是从 0 开始的，所以这里的答案是 1
 }
 
 {

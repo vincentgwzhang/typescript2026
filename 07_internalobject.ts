@@ -14,12 +14,34 @@
 }
 
 {
-    let promise: Promise<String> = new Promise((resolve, reject) => {
-        resolve('hello world');
+    interface User {
+        id: number;
+        name: string;
+        email: string;
+    }
+
+    let promise: Promise<User> = new Promise((resolve, reject) => {
+        fetch('https://jsonplaceholder.typicode.com/users/1')
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('HTTP 请求失败');
+                }
+
+                // const user = (await response.json()) as User;
+                return response.json() as Promise<User>;
+            })
+            .then((user) => {
+                resolve(user);
+            })
+            .catch((error) => {
+                reject(error);
+            });
     });
 
     promise.then((res) => {
-        // console.log(res.length);
+        console.log(res.name, res.email);
+    }).catch((error) => {
+        console.log(error);
     });
 }
 

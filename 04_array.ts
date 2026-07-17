@@ -77,3 +77,28 @@ function aFun1(...args: any[]): void {
 }
 
 aFun1(1, 2, 3);
+
+// Javascript 最后都是 string
+console.log(abc[0])
+console.log(abc["0"])
+
+
+const def: ABC = {
+    callee: function(val: number) {console.log(val)},
+    length: 3,
+    [0]: "hello", // ← 这是 computed property，key 是数字 0
+    [1]: 42,      // ← key 是数字 1
+    [2]: true,    // ← key 是数字 2
+}
+
+def.callee(13);
+
+const ghi: ABC = {
+    callee: (value: number) => {console.log(value)},
+    length: 3,
+    [0]: "hello",
+    [1]: 42,
+    [2]: true,
+}
+
+ghi.callee(20);
